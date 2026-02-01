@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belief Dynamics in Social Networks - Demo Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">🧠 Belief Dynamics Platform</div>
+        <ul class="nav-links">
+            <li><a href="#workflow" class="active">实验流程</a></li>
+            <li><a href="#interaction">LLM交互</a></li>
+            <li><a href="#attitude">态度变化</a></li>
+            <li><a href="#reasons">变化原因</a></li>
+            <li><a href="#network">网络拓扑</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Section 1: 实验配置执行全流程 -->
+        <section id="workflow" class="section">
+            <h2>📋 实验配置与执行流程</h2>
+            <div class="workflow-container">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>配置实验参数</h3>
+                        <div class="config-panel">
+                            <div class="config-group">
+                                <label>从众性条件</label>
+                                <select id="conformity-select">
+                                    <option value="high">高从众组 (0.70-0.90)</option>
+                                    <option value="low">低从众组 (0.10-0.35)</option>
+                                </select>
+                            </div>
+                            <div class="config-group">
+                                <label>网络结构</label>
+                                <select id="network-select">
+                                    <option value="full">全连接网络</option>
+                                    <option value="small_world">小世界网络</option>
+                                    <option value="sparse">稀疏链式网络</option>
+                                </select>
+                            </div>
+                            <div class="config-group">
+                                <label>记忆条件</label>
+                                <select id="memory-select">
+                                    <option value="enabled">启用记忆</option>
+                                    <option value="disabled">禁用记忆</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>生成智能体</h3>
+                        <div class="agent-preview" id="agent-preview">
+                            <!-- 动态生成智能体卡片 -->
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>执行仿真</h3>
+                        <button class="btn-primary" id="run-simulation">▶ 运行仿真</button>
+                        <div class="progress-bar">
+                            <div class="progress" id="sim-progress"></div>
+                        </div>
+                        <div class="status" id="sim-status">准备就绪</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: LLM响应与智能体交互 -->
+        <section id="interaction" class="section">
+            <h2>💬 LLM响应与智能体交互</h2>
+            <div class="interaction-container">
+                <div class="round-selector">
+                    <label>选择轮次:</label>
+                    <input type="range" id="round-slider" min="0" max="9" value="0">
+                    <span id="round-display">Round 0</span>
+                </div>
+                <div class="interaction-grid" id="interaction-grid">
+                    <!-- 动态生成交互卡片 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: 智能体态度变化过程 -->
+        <section id="attitude" class="section">
+            <h2>📈 智能体态度变化轨迹</h2>
+            <div class="chart-container">
+                <canvas id="attitude-chart"></canvas>
+            </div>
+            <div class="legend-container" id="attitude-legend"></div>
+        </section>
+
+        <!-- Section 4: 态度变化原因 -->
+        <section id="reasons" class="section">
+            <h2>🔍 态度变化原因分析</h2>
+            <div class="reasons-container">
+                <div class="agent-selector">
+                    <label>选择智能体:</label>
+                    <select id="agent-select"></select>
+                </div>
+                <div class="reasons-timeline" id="reasons-timeline">
+                    <!-- 动态生成原因时间线 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: 网络拓扑可视化 -->
+        <section id="network" class="section">
+            <h2>🕸️ 网络拓扑可视化</h2>
+            <div class="network-controls">
+                <button class="btn-secondary" data-network="full">全连接</button>
+                <button class="btn-secondary" data-network="small_world">小世界</button>
+                <button class="btn-secondary" data-network="sparse">稀疏链式</button>
+            </div>
+            <div class="network-viz" id="network-viz">
+                <svg id="network-svg"></svg>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Belief Dynamics in Social Networks - Multi-Agent Simulation Framework</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "low_conformity_full_memory",
+    "name": "社会影响力实验",
+    "description": "记录所有SocialInfluenceAgent的LLM回复",
+    "status": "completed",
+    "type": "simple",
+    "agentCount": 0,
+    "messageCount": 200,
+    "currentTimeStep": 9,
+    "createdAt": "2026-01-21T06:47:58Z",
+    "updatedAt": "2026-01-21T06:47:58Z",
+    "config": {}
+  },
+  {
+    "id": "high_conformity_full_memory",
+    "name": "社会影响力实验",
+    "description": "记录所有SocialInfluenceAgent的LLM回复",
+    "status": "completed",
+    "type": "simple",
+    "agentCount": 0,
+    "messageCount": 200,
+    "currentTimeStep": 9,
+    "createdAt": "2026-01-25T05:56:51Z",
+    "updatedAt": "2026-01-25T05:56:51Z",
+    "config": {}
+  }
+]
